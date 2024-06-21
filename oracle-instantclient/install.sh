@@ -3,9 +3,6 @@ set -e
 
 echo "Activating feature 'oracle instant client'"
 
-echo "Using version ${VERSION}"
-
-
 # Main
 if [ "$(id -u)" -ne 0 ]; then
   echo -e "This script must be run as root!"
@@ -21,14 +18,14 @@ else
 fi
 
 echo "Installing distro packages"
-apt-get -y install libaio
-
+apt-get update && \
+  apt-get -y install libaio1
 
 cd /usr/local/lib
-wget https://download.oracle.com/otn_software/linux/instantclient/${VERSION}.zip -q --show-progress --progress=dot
-unzip ${VERSION}.zip
-rm ${VERSION}.zip
-echo "/usr/local/lib/instantclient_19_10" >>/etc/ld.so.conf.d/oracle-instantclient.conf
+wget https://download.oracle.com/otn_software/linux/instantclient/191000/instantclient-basiclite-linux.arm64-19.10.0.0.0dbru-2.zip --show-progress --progress=dot
+unzip -o instantclient-basiclite-linux.arm64-19.10.0.0.0dbru-2.zip
+rm instantclient-basiclite-linux.arm64-19.10.0.0.0dbru-2.zip
+echo "/usr/local/lib/instantclient_19_10" >/etc/ld.so.conf.d/oracle-instantclient.conf
 ldconfig
 
 ORACLE_HOME=/usr/local/lib/instantclient_19_10

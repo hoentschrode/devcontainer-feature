@@ -1,6 +1,6 @@
 {
   "name": "Oracle instant client",
-  "id": "oracle",
+  "id": "oracleInstantClient",
   "version": "1.0.0",
   "dependsOn": {
     "ghcr.io/devcontainers/features/common-utils"
@@ -10,7 +10,7 @@
     "version": {
       "type": "string",
       "proposals": ["191000/instantclient-basiclite-linux.arm64-19.10.0.0.0dbru-2"],
-      "default": "191000/instantclient-basiclite-linux.arm64-19.10.0.0.0dbru-2.zip",
+      "default": "191000/instantclient-basiclite-linux.arm64-19.10.0.0.0dbru-2",
       "description": "The version to be installed."
     }
   },
