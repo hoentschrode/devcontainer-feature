@@ -27,7 +27,8 @@ else
 fi
 
 echo "Installing build packages"
-apt-get -y install ninja-build gettext cmake unzip curl build-essential
+apt-get update && \
+  apt-get -y install ninja-build gettext cmake unzip curl build-essential
 
 cd /tmp
 git clone https://github.com/neovim/neovim.git
